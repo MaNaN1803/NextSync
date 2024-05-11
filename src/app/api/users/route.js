@@ -1,3 +1,5 @@
+import next from "next";
+import { NextURL } from "next/dist/server/web/next-url";
 import { NextResponse } from "next/server";
 
 export function GET(request){
@@ -10,7 +12,21 @@ export function GET(request){
         message : "get request send"
     });
 }
-export function POST(){}
+export async function POST(request){
+    const body = request.body;
+    console.log(body);
+    console.log(request.method);
+    // console.log(request.cookies);
+    // console.log(request.headers);
+    // console.log(request.nextUrl.pathname);
+    
+    const jsondata = await request.json()
+    console.log(jsondata);
+    
+    return NextResponse.json({
+        message : "post request send"
+    });
+}
 export function DELETE(request){
     console.log("delete api called");
     return NextResponse.json({

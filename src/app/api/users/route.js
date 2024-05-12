@@ -1,6 +1,9 @@
+import { connectdb } from "@/dbconnect/db";
 import next from "next";
 import { NextURL } from "next/dist/server/web/next-url";
 import { NextResponse } from "next/server";
+
+connectdb();
 
 export function GET(request){
     const users = [
